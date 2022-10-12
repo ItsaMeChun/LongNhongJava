@@ -2,3 +2,7 @@
 *.html linguist-detectable=true
 *.css linguist-detectable=true
 *.java linguist-detectable=true
+
+
+*.less linguist-detectable=false
+*.scss linguist-detectable=false
