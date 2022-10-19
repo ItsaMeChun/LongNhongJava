@@ -21,16 +21,16 @@
 
 DROP TABLE IF EXISTS `bunbo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `bunbo` (
   `Mamon` int NOT NULL,
-  `Tenmon` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Tenmon` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `GiaTien` bigint NOT NULL,
-  `Tinhtrang` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `Img` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Mota` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `Tinhtrang` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `Img` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Mota` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`Mamon`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +49,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `chitietdonthang`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `chitietdonthang` (
   `MaDonHang` int NOT NULL,
   `Mamon` int NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE `chitietdonthang` (
   PRIMARY KEY (`MaDonHang`,`Mamon`),
   KEY `FK__CHITIETDO__Mamon__37A5467C` (`Mamon`),
   CONSTRAINT `FK__CHITIETDO__Mamon__37A5467C` FOREIGN KEY (`Mamon`) REFERENCES `bunbo` (`Mamon`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +76,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `chitiethoadonddt`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `chitiethoadonddt` (
   `MaHoaDon` int NOT NULL,
   `Madodungthem` int NOT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE `chitiethoadonddt` (
   PRIMARY KEY (`MaHoaDon`,`Madodungthem`),
   KEY `Madodungthem` (`Madodungthem`),
   CONSTRAINT `chitiethoadonddt_ibfk_1` FOREIGN KEY (`Madodungthem`) REFERENCES `dodungthem` (`Madodungthem`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `chitiethoadonnuoc`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `chitiethoadonnuoc` (
   `MaHoaDon` int NOT NULL,
   `Manuoc` int DEFAULT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE `chitiethoadonnuoc` (
   PRIMARY KEY (`MaHoaDon`),
   KEY `Manuoc` (`Manuoc`),
   CONSTRAINT `chitiethoadonnuoc_ibfk_1` FOREIGN KEY (`Manuoc`) REFERENCES `nuoc` (`Manuoc`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,14 +130,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `chitietmon`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `chitietmon` (
   `Mahd` int NOT NULL,
   `Madd` int NOT NULL,
   `Mamon` int NOT NULL,
   PRIMARY KEY (`Mahd`,`Madd`,`Mamon`),
   CONSTRAINT `chitietmon_ibfk_1` FOREIGN KEY (`Mahd`) REFERENCES `chitietdonthang` (`MaDonHang`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,15 +155,15 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `dodungthem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `dodungthem` (
   `Madodungthem` int NOT NULL,
-  `Tendodung` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Tendodung` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `GiaTienDD` decimal(19,4) DEFAULT NULL,
   `Hientrang` tinyint(1) DEFAULT NULL,
-  `Imgdd` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Imgdd` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`Madodungthem`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,7 +182,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `dondathang`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `dondathang` (
   `MaDonHang` int NOT NULL,
   `Dathanhtoan` varchar(10) DEFAULT NULL,
@@ -194,7 +194,7 @@ CREATE TABLE `dondathang` (
   PRIMARY KEY (`MaDonHang`),
   KEY `FK__DONDATHANG__IDKH__37A5467C` (`IDKH`),
   CONSTRAINT `FK__DONDATHANG__IDKH__37A5467C` FOREIGN KEY (`IDKH`) REFERENCES `kh` (`IDKH`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,21 +212,21 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `kh`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `kh` (
   `IDKH` int NOT NULL AUTO_INCREMENT,
-  `HoTenKH` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `HoTenKH` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `TaikhoanKH` varchar(50) NOT NULL,
   `MatkhauKH` varchar(33) NOT NULL,
   `EmailKH` varchar(100) NOT NULL,
-  `DiachiKH` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `DiachiKH` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `DienthoaiKH` varchar(15) NOT NULL,
   `NgaysinhKH` date NOT NULL,
   PRIMARY KEY (`IDKH`),
   UNIQUE KEY `IDKH_UNIQUE` (`IDKH`),
   UNIQUE KEY `UQ__KH__1FD9F1157BDC19A8` (`TaikhoanKH`),
   UNIQUE KEY `DienthoaiKH_UNIQUE` (`DienthoaiKH`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -245,20 +245,20 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `manager`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `manager` (
   `IDM` int NOT NULL,
-  `HoTenM` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `HoTenM` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `TaikhoanM` varchar(50) DEFAULT NULL,
   `MatkhauM` varchar(50) NOT NULL,
   `EmailM` varchar(100) DEFAULT NULL,
-  `DiachiM` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `DiachiM` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `DienthoaiM` varchar(15) DEFAULT NULL,
   `NgaysinhM` date DEFAULT NULL,
   PRIMARY KEY (`IDM`),
   UNIQUE KEY `UQ__Manager__C9ADC98FD99C5A54` (`TaikhoanM`),
   UNIQUE KEY `UQ__Manager__456F8D2E2ADEFF53` (`EmailM`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -276,14 +276,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `nuoc`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `nuoc` (
   `Manuoc` int NOT NULL,
   `Nhanhieu` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8_general_ci NOT NULL,
   `Giatien` bigint NOT NULL,
   `Img` varchar(30) NOT NULL,
   PRIMARY KEY (`Manuoc`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
