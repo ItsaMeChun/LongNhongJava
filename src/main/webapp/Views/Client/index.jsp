@@ -37,7 +37,7 @@
                 </li>
 
                 <li>
-                    <a href="Menu">Menu</a>
+                    <a type="meu" href="Menu">Menu</a>
                 </li>
 
                 <li>
@@ -46,7 +46,7 @@
 
                     <!--Can chinh sua tao trang cho nguoi dung-->                  
                 <li>
-                    <a href="Giohang">Giỏ hàng</a>
+                    <a type="carttttt" href="Giohang">Giỏ hàng</a>
                 </li>
                 
                 <li>

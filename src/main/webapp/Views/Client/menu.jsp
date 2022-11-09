@@ -96,7 +96,7 @@
                     </div>
                     <div class="list-price">
                         <p>${monan.giatien} VNĐ</p>
-                        <a href="${pageContext.request.contextPath}/ThemGioHang?&action=buy&id=${monan.mamon}">Đặt</a>
+                        <a type="clickMe" href="${pageContext.request.contextPath}/ThemGioHang?&action=buy&id=${monan.mamon}">Đặt</a>
                     </div>                    
                 </div>
             </c:forEach>   
@@ -111,7 +111,7 @@
                     </div>
                     <div class="list-price">
                         <p>${nuoc.giatien} VNĐ</p>
-                        <a href="${pageContext.request.contextPath}/ThemGioHang?&action=buynuoc&idnuoc=${nuoc.mamon}">Đặt</a>
+                        <a type="needWater" href="${pageContext.request.contextPath}/ThemGioHang?&action=buynuoc&idnuoc=${nuoc.mamon}">Đặt</a>
                     </div>
                 </div>
             </c:forEach>                    
